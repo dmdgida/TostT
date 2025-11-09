@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ kategori_adi }} Ürünleri</title>
+    
+</head>
+<body>
+    <h1>{{ kategori_adi }} Ürünleri</h1>
+
+    {% for yemek in yemekler %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            <h3>{{ yemek[1] }}</h3>
+            <p>Fiyat: {{ yemek[2] }} TL</p>
+            <p>{{ yemek[4] }}</p>
+            <img src="{{ url_for('static', filename=yemek[5]) }}" width="100">
+        </div>
+    {% else %}
+        <p>Bu kategoride henüz ürün yok.</p>
+    {% endfor %}
+
+    <br>
+    <a href="/">Ana Menüye Dön</a>
+</body>
+</html>
